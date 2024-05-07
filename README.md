@@ -1,51 +1,21 @@
-# Next.js & NextUI Template
+# NeuroCar
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+Welcome to **NeuroCar**, a sleek car prediction application designed to simplify the process of identifying car details from images. Developed by Brandon Haynes and hosted on Vercel, this app leverages the power of the VGG16 model and OpenAI's GPT-4V to deliver accurate car identification and provide useful pricing and eBay listings for similar models.
 
-## Technologies Used
+Check out the live site: [NeuroCar](https://neurocar.net)
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## Features
 
-## How to Use
+**NeuroCar** offers the following features:
 
-### Use the template with create-next-app
+- **Car Identification**: Uses a custom-trained VGG16 neural network model to identify the make, model, and year of cars from uploaded images.
+- **Pricing Information**: Integrates pricing data to give users an average price for the identified car model.
+- **eBay Listings**: Fetches and displays listings from eBay that match the identified car, providing users with quick access to similar cars available for sale.
 
-To create a new project based on this template using `create-next-app`, run the following command:
+## Technology Stack
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
-npm install
-```
-
-### Run the development server
-
-```bash
-npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+- **Next.js**: A React framework for building user interfaces and static generation.
+- **Vercel**: Hosting and serverless backend services for optimized performance and scalability.
+- **VGG16 Model**: A deep convolutional network used for image recognition tasks.
+- **OpenAI's GPT-4V**: Utilized for processing and interpreting complex data inputs to enhance prediction accuracy.
+- **App Directory Structure**: Utilizes the Next.js app directory for a streamlined project structure.
