@@ -358,7 +358,7 @@ export default function Component() {
       return;
     }
 
-    toast.success(`The average price for a ${make} ${model} ${year} is £${data.ebayReturnResponse.averagePrice}`);
+    // toast.success(`The average price for a ${make} ${model} ${year} is £${data.ebayReturnResponse.averagePrice}`);
 
     dispatch({type: 'SET_EBAY_RESULT', payload: data.ebayReturnResponse});
 

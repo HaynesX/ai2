@@ -29,10 +29,6 @@ export default function PredictingLoadingPage({onNavigate, handleDetailsSubmit, 
     }, [state.vehicleDetails]);
 
 
-
-
-
-
   const years = Array.from({length: 126}, (_, i) => new Date().getFullYear() - i);
 
 const steps = [
@@ -164,7 +160,7 @@ const steps = [
 
 
   return (
-    <section className="max-w-sm">
+    <section className="max-w-sm py-6">
         <div style={{
         WebkitFilter: 'blur(200px)',
         filter: 'blur(200px)',
