@@ -20,21 +20,6 @@ const DragDropPage = React.forwardRef<HTMLFormElement, DragDropPageProps>(({ cla
 
     return (
       <div className="flex flex-col gap-4 justify-center items-center">
-       {/* <div style={{
-        WebkitFilter: 'blur(200px)',
-        filter: 'blur(200px)',
-        opacity: 0.35,
-        backgroundColor: '#dd10ddb3',
-        overflow: 'hidden',
-        borderRadius: '50%',
-        height: '641px',
-        position: 'absolute',
-        width: '100%',
-        transform: 'perspective(1200px)',
-
-        
-
-       }}></div> */}
 
         <div className='flex justify-center gap-2 flex-col items-center max-w-[700px]'>
           <NeuroCarTitle />
