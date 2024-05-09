@@ -115,6 +115,11 @@ export default function Component() {
         
           toast.error(`Please wait ${secondsToWait} seconds before trying again.`);
         }
+
+        else if (response.status === 500) {
+          const responseBody = await response.json();
+          toast.error(responseBody.error);
+        }
         
         
 
@@ -384,7 +389,7 @@ export default function Component() {
   return (
         <AnimatePresence mode='wait'>
           <TransitionWrapper key={currentPage}>
-            <div className="relative flex w-full flex-col text-center sm:h-full sm:justify-center items-center lg:pt-0">
+            <div className="relative h-full flex w-full flex-col text-center sm:h-full sm:justify-center items-center pt-12 px-2 sm:px-0  sm:pt-0">
                 {pages[currentPage as keyof typeof pages].component}
             </div>
           </TransitionWrapper>

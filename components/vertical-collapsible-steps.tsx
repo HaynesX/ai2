@@ -160,7 +160,7 @@ const VerticalCollapsibleSteps = React.forwardRef<HTMLButtonElement, VerticalCol
               <li
                 key={stepIdx}
                 className={cn(
-                  "group relative gap-4 rounded-large border border-default-200 data-[status=active]:bg-default-100 dark:border-default-50 dark:data-[status=active]:bg-default-300/20 dark:data-[status=active]:border-secondary-200 dark:data-[status=inactive]:bg-default-300/50 dark:data-[status=complete]:bg-default-200/50",
+                  "group relative gap-4 rounded-large border border-default-100 data-[status=active]:bg-default-100 dark:data-[status=active]:bg-default-300/20 dark:data-[status=active]:border-secondary-200 dark:data-[status=inactive]:bg-default-300/20 dark:data-[status=complete]:bg-default-300/30",
                   stepClassName,
                 )}
                 data-status={status}

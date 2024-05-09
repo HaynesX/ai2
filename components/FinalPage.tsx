@@ -51,7 +51,7 @@ export default function FinalPage({onNavigate, setCurrentStep}: any) {
 
 
   return (
-    <section className="flex max-w-4xl flex-col items-center py-24">
+    <section className="flex max-w-4xl flex-col items-center sm:py-12">
       <div className="flex max-w-xl flex-col text-center">
         <h2 className="font-medium text-secondary">Average Vehicle Price</h2>
         <h1 className="text-4xl font-medium tracking-tight">£{avgPrice}</h1>

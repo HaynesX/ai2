@@ -16,9 +16,15 @@ export interface ProvidersProps {
 export function Providers({ children, themeProps }: ProvidersProps) {
   const router = useRouter();
 
+//   <div className="relative flex flex-col"> 
+//             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+//               {children}
+//             </main>
+//           </div>
+
 	return (
-		<NextUIProvider navigate={router.push}>
-			<NextThemesProvider {...themeProps}>
+		<NextUIProvider className="min-h-dvh p-4 sm:p-0 sm:flex sm:justify-center sm:items-center" navigate={router.push}>
+			<NextThemesProvider  {...themeProps}>
 				<Toaster />
 				<MyProvider>
 					{children}

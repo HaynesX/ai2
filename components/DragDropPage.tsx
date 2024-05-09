@@ -19,8 +19,8 @@ const DragDropPage = React.forwardRef<HTMLFormElement, DragDropPageProps>(({ cla
   }, [])
 
     return (
-      <div className="flex flex-col justify-center items-center">
-       <div style={{
+      <div className="flex flex-col gap-4 justify-center items-center">
+       {/* <div style={{
         WebkitFilter: 'blur(200px)',
         filter: 'blur(200px)',
         opacity: 0.35,
@@ -34,9 +34,9 @@ const DragDropPage = React.forwardRef<HTMLFormElement, DragDropPageProps>(({ cla
 
         
 
-       }}></div>
+       }}></div> */}
 
-        <div className='flex justify-center flex-col items-center max-w-[700px]'>
+        <div className='flex justify-center gap-2 flex-col items-center max-w-[700px]'>
           <NeuroCarTitle />
           <NeuroCarDescription />
         </div>

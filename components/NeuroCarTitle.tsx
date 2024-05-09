@@ -2,8 +2,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Instrument_Sans } from 'next/font/google'
+import localFont from '@next/font/local'
 
 const instrumentSans = Instrument_Sans({ subsets: ['latin'] })
+const myFont = localFont({ src: '../public/fonts/DentonTest-Regular.otf' })
 
 const NeuroCarTitle = () => {
   const variants = {
@@ -20,7 +22,8 @@ const NeuroCarTitle = () => {
 
   return (
     <motion.h1
-      className={`${instrumentSans.className} text-[42px] font-medium text-center z-[999] bg-gradient-to-r from-pink-600 via-violet-500 to-purple-400 bg-clip-text text-transparent`}
+    // bg-gradient-to-r from-pink-600 via-violet-500 to-purple-400 bg-clip-text text-transparent
+      className={`${myFont.className} leading-[1] text-[48px] sm:text-[64px] font-medium text-center z-[999]`}
       initial="hidden"
       animate="visible"
       variants={variants}

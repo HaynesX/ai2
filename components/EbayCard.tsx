@@ -20,7 +20,7 @@ export type EbayCardProps = React.HTMLAttributes<HTMLDivElement> & EbayCardType;
 
 const EbayCard = React.forwardRef<HTMLDivElement, EbayCardProps>(
   ({ title, price, condition, url, image, location, className, ...props }, ref) => (
-    <div ref={ref} onClick={() => {window.open(url, "_blank");}} className={cn("flex flex-col items-center bg-opacity-80 cursor-pointer hover:bg-opacity-100 transition-all rounded-large bg-content1 px-4 py-6 text-center shadow-small", className)} {...props}>
+    <div ref={ref} onClick={() => {window.open(url, "_blank");}} className={cn("flex flex-col items-center bg-opacity-80 cursor-pointer hover:bg-opacity-100 transition-all rounded-large bg-default-400/15 px-4 py-6 text-center shadow-small", className)} {...props}>
       <Avatar className="h-[100px] w-[100px]" src={image} radius="sm" />
       <h3 className="mt-2 font-medium">
         {price?.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' })}
