@@ -29,7 +29,7 @@ export const TransitionWrapper = ({ children }: {
     children: React.ReactNode;
 }) => (
   <motion.div
-  className='sm:w-full sm:h-full flex flex-col sm:items-center sm:justify-center'
+  className='sm:w-full sm:h-full flex flex-col items-center justify-center'
     variants={variants}
     initial="enter"
     animate="center"

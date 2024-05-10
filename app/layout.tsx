@@ -36,7 +36,7 @@ export default function RootLayout({
         className="min-h-dvh font-sans antialiased"
         
       >
-		<div className="fixed animate-fade-in h-full w-full z-[-1]" style={{ backgroundImage: "url('bg3.png')" }}></div>
+		<div className="fixed h-full w-full z-[-1]" style={{ backgroundImage: "url('2011.png')" }}></div>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
 				{/* <div className="relative flex flex-col"> 
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">

@@ -23,7 +23,7 @@ export function Providers({ children, themeProps }: ProvidersProps) {
 //           </div>
 
 	return (
-		<NextUIProvider className="min-h-dvh p-4 sm:p-0 sm:flex sm:justify-center sm:items-center" navigate={router.push}>
+		<NextUIProvider className="min-h-dvh p-4 sm:p-0 flex justify-center items-center" navigate={router.push}>
 			<NextThemesProvider  {...themeProps}>
 				<Toaster />
 				<MyProvider>

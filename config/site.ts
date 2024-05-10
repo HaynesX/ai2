@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: "NeuroCar",
-	description: "A sleek car prediction app that identifies car details from images and provides pricing and eBay listings using VGG16 and GPT-4V.",
+	name: "tominecon",
+	description: "tominecon.7z",
 	navItems: [
 		{
 			label: "Home",
