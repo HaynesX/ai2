@@ -11,13 +11,32 @@ import LoaderPage from '@/components/LoaderPage';
 import PredictingLoadingPage from '@/components/PredictingLoadingPage';
 import { toast } from 'sonner';
 import FinalPage from '@/components/FinalPage';
+import { L1L2Args } from '@tensorflow/tfjs-layers/dist/regularizers';
 
 tf.ENV.set('DEBUG', false);
+
+
+
 
 
 if (typeof window !== 'undefined') {
   // @ts-ignore
   tf.setBackend('webgl');
+
+
+  class L2 {
+
+    static className = 'L2';
+
+    constructor(config: L1L2Args | undefined) {
+       return tf.regularizers.l1l2(config)
+    }
+}
+tf.serialization.registerClass(L2 as any);
+
+  
+
+
 }
 
 
@@ -193,7 +212,11 @@ export default function Component() {
       img.src = URL.createObjectURL(imageFile);
 
       img.onload = async () => {
-        const class_names = ['Audi_A3_2021_Processed', 'BMW_1-Series_2016_Processed', 'Ford_Puma_2021_Processed', 'Nissan_Juke_2023_Processed', 'Nissan_Qashqai_2021_Processed', 'z_junk_Processed'];
+        const class_names = ['Audi-A3-2021', 'BMW-M3-2018', 'Ford-Fiesta-2015', 'Nissan-Qashqai-2021', 'Vauxhall-Corsa-2021', 'Volkswagen-Golf-2017', 'Z-Junk']
+
+        console.log('Class names:', class_names);
+
+
         const class_names_mmy = [
           {
             make: 'Audi',
@@ -202,18 +225,13 @@ export default function Component() {
           },
           {
             make: 'BMW',
-            model: '1-Series',
-            year: '2016',
+            model: 'M3',
+            year: '2018',
           },
           {
             make: 'Ford',
-            model: 'Puma',
-            year: '2021',
-          },
-          {
-            make: 'Nissan',
-            model: 'Juke',
-            year: '2023',
+            model: 'Fiesta',
+            year: '2015',
           },
           {
             make: 'Nissan',
@@ -221,10 +239,21 @@ export default function Component() {
             year: '2021',
           },
           {
-            make: 'Junk',
-            model: 'Junk',
+            make: 'Vauxhall',
+            model: 'Corsa',
             year: '2021',
           },
+          {
+            make: 'Volkswagen',
+            model: 'Golf',
+            year: '2017',
+          },
+          {
+            make: 'Junk',
+            model: 'Junk',
+            year: 'Junk',
+          },
+
 
         ]
     
@@ -239,7 +268,7 @@ export default function Component() {
           const maxPrediction = Math.max(...predictions);
           const predictedClassIndex = predictions.indexOf(maxPrediction);
 
-          if (predictedClassIndex === 5) {
+          if (predictedClassIndex === 6) {
             console.log('The model is not confident in its prediction junk.');
             await callPredictAPI(img);
 

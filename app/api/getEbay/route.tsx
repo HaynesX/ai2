@@ -86,16 +86,29 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
     items.forEach((item: any) => {
         sumPrices += item.sellingStatus.currentPrice.value;
-        finalItems.push({
-            id: item.itemId,
-            title: item.title,
-            condition: item.condition.conditionDisplayName,
-            location: item.location,
-            price: item.sellingStatus.currentPrice.value,
-            url: item.viewItemURL,
-            image: item.galleryURL
-        });
+        try {
+            finalItems.push({
+                id: item.itemId,
+                title: item.title,
+                condition: item?.condition?.conditionDisplayName || 'N/A',
+                location: item.location || 'N/A',
+                price: item.sellingStatus.currentPrice.value,
+                url: item.viewItemURL,
+                image: item.galleryURL
+            });
+        }
+        catch (error) {
+            console.log(error)
+        }
+        
     });
+
+    if (finalItems.length === 0) {
+        console.log("No items found")
+        return NextResponse.json({
+            error: "No items found"
+        }, { status: 401 });
+    }
 
     const ebayReturnResponse = {
         averagePrice: sumPrices / items.length,
