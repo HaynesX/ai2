@@ -31,7 +31,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
 
     const responseAi = await openai.chat.completions.create({
-        model: process.env['OPENAI_API_MODEL'] as any ?? "gpt-4-turbo",
+        model: process.env['OPENAI_API_MODEL'] as any ?? "gpt-4o",
         response_format: { type: "json_object" },
         messages: [
           {
@@ -48,8 +48,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
           },
         ],
       });
-
-    //   '"{\\n  \\"make\\": \\"Tesla\\",\\n  \\"model\\": \\"Model S…ehicle\\": true,\\n  \\"confidence_in_mmy\\": 0.9\\n}"'
 
     if (!responseAi.choices[0].message.content) {
         return NextResponse.json({
