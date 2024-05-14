@@ -68,7 +68,7 @@ const steps = [
                     ) : (
                         <>
                             <Icon icon="carbon:model" width="18" className="text-default-500/50"/>
-                            <p className="text-default-500/50 text-xs font-mono">Generated with VGG16</p>
+                            <p className="text-default-500/50 text-xs font-mono">Generated with ResNet50</p>
                         </>
                     )}
 
