@@ -34,7 +34,7 @@ To get **NeuroCar** running locally and on Vercel, follow these detailed steps:
 1. **Clone the Repository**  
    Start by cloning the NeuroCar repository to your local machine using:
    ```bash
-   git clone https://github.com/yourusername/neurocar.git
+   git clone https://github.com/HaynesX/ai2.git
    cd neurocar
    ```
 
