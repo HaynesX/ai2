@@ -38,15 +38,7 @@ export default function RootLayout({
       >
 		<div className="fixed bg-cover animate-fade-in h-full w-full z-[-1]" style={{ backgroundImage: "url('bg3.png')" }}></div>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-				{/* <div className="relative flex flex-col"> 
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
-          </div> */}
-
 					{children}
-
-
 				</Providers>
 			</body>
 		</html>
