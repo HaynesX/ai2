@@ -102,20 +102,11 @@ export default function Component() {
     });
 
     if (!response.ok) {
-      
-
-      // after 1 second, navigate back to main
       setTimeout(async () => {
 
-        // this is in the response
-        // {"error":"Rate limit exceeded","limit":2,"remaining":0,"reset":1715084520000}
-
         if (response.status === 429) {
-          // Try to fetch the 'reset' header and convert it to a number directly.
-
           const responseBody = await response.json();
           const resetTime = responseBody.reset;
-        
           // Check if resetTime is a valid number
           if (!resetTime) {
             toast.error('Error. Please try again later.');
@@ -128,7 +119,6 @@ export default function Component() {
         
           const currentTime = Date.now();
           const waitTime = resetTime - currentTime;
-        
           // Ensure a positive wait time; if negative, default to a minimal wait period (e.g., 5 seconds).
           const secondsToWait = Math.max(Math.ceil(waitTime / 1000), 5);
         
@@ -140,18 +130,11 @@ export default function Component() {
           toast.error(responseBody.error);
         }
         
-        
-
-
         console.log(response.status, response.statusText);
         dispatch({type: 'SET_ALL_NULL'});
         setCurrentStep(0);
         navigateTo('main');
       }, 1000);
-
-
-
-
       return;
     }
 
@@ -189,18 +172,20 @@ export default function Component() {
       return;
     }
 
-   
-    dispatch({type: 'SET_VEHICLE_DETAILS', payload: {...state.vehicleDetails, make: dataFromModel.make, model: dataFromModel.model, year: dataFromModel.year}});
+    dispatch({type: 'SET_VEHICLE_DETAILS', 
+    payload: {
+      ...state.vehicleDetails,
+      make: dataFromModel.make,
+      model: dataFromModel.model,
+      year: dataFromModel.year
+    }});
   };
-  
-  
-  
+
 
 
   useEffect(() => {
     if (!state.imageFiles) return;
     if (state.imageFiles.length === 0) return;
-
     if (state.vehicleDetails.make) return;
 
     navigateTo('predictingLoading');
@@ -212,11 +197,14 @@ export default function Component() {
       img.src = URL.createObjectURL(imageFile);
 
       img.onload = async () => {
-        const class_names = ['Audi-A3-2021', 'BMW-M3-2018', 'Ford-Fiesta-2015', 'Nissan-Qashqai-2021', 'Vauxhall-Corsa-2021', 'Volkswagen-Golf-2017', 'Z-Junk']
-
-        console.log('Class names:', class_names);
-
-
+        const class_names = [
+          'Audi-A3-2021',
+          'BMW-M3-2018',
+          'Ford-Fiesta-2015',
+          'Nissan-Qashqai-2021',
+          'Vauxhall-Corsa-2021',
+          'Volkswagen-Golf-2017',
+          'Z-Junk']
         const class_names_mmy = [
           {
             make: 'Audi',
@@ -253,15 +241,11 @@ export default function Component() {
             model: 'Junk',
             year: 'Junk',
           },
-
-
         ]
     
-        let tensor = tf.browser.fromPixels(img).resizeBilinear([224, 224]) // Using bilinear, as it's typically more accurate
-
+          let tensor = tf.browser.fromPixels(img).resizeBilinear([224, 224])
           const threshold = 0.75;
 
-          
           const prediction = await model.predict(tensor.expandDims());
           const predictions = prediction.dataSync();
           console.log('Predictions:', predictions);
@@ -269,35 +253,22 @@ export default function Component() {
           const predictedClassIndex = predictions.indexOf(maxPrediction);
 
           if (predictedClassIndex === 6) {
-            console.log('The model is not confident in its prediction junk.');
             await callPredictAPI(img);
-
-
-            
           }
           else {
             if (maxPrediction < threshold) {
               console.log('The model is not confident in its prediction.');
               await callPredictAPI(img);
-
-              
-
-
             } else {
               console.log('Predicted Class:', class_names[predictedClassIndex]);
-
               const make = class_names_mmy[predictedClassIndex].make;
               const model = class_names_mmy[predictedClassIndex].model;
               const year = class_names_mmy[predictedClassIndex].year;
 
-              dispatch({type: 'SET_VEHICLE_DETAILS', payload: {...state.vehicleDetails, make, model, year, generatedWithModel: 'custom'}});
-
+              dispatch({type: 'SET_VEHICLE_DETAILS',
+               payload: {...state.vehicleDetails, make, model, year, generatedWithModel: 'custom'}});
             }
           }
-
-
-         
-          
       };
     }
     

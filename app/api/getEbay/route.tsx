@@ -82,7 +82,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
         }, { status: 401 });
     }
     let sumPrices = 0;
-    const finalItems: { id: any, title: any; price: any; url: any; image: any; condition: any, location: any }[] = [];
+    const finalItems: { id: any, title: any, price: any, url: any, image: any, condition: any, location: any }[] = [];
 
     items.forEach((item: any) => {
         sumPrices += item.sellingStatus.currentPrice.value;

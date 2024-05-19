@@ -3,13 +3,10 @@ import { cookies, headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from 'openai';
 
-
-
-
 export async function POST(request: NextRequest, response: NextResponse) {
 
     const openai = new OpenAI({
-        apiKey: process.env['OPENAI_API_KEY'], // This is the default and can be omitted
+        apiKey: process.env['OPENAI_API_KEY'],
       });
 
 
